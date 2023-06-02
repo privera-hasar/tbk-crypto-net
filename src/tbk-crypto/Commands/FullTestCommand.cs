@@ -2,7 +2,7 @@
 
 namespace tbk_crypto.Commands
 {
-    internal class FullTestCommand
+    public class FullTestCommand
     {
         private readonly JoseCryptographyService _cryptoService;
 

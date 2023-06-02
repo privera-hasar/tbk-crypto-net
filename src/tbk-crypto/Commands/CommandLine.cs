@@ -1,16 +1,16 @@
 ﻿namespace tbk_crypto.Commands
 {
-    internal class CommandLine
+    public class CommandLine
     {
-        public Commands Command { get; set; }
+        public SupportedCommands Command { get; set; }
         public string? Argument { get; set; }
 
-        public CommandLine(Commands command)
+        public CommandLine(SupportedCommands command)
         {
             Command = command;
         }
 
-        public CommandLine(Commands command, string argument)
+        public CommandLine(SupportedCommands command, string argument)
         {
             Command = command;
             Argument = argument;

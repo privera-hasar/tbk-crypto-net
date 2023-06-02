@@ -2,7 +2,7 @@
 
 namespace tbk_crypto.Commands
 {
-    internal class DecryptCommand
+    public class DecryptCommand
     {
         private readonly JoseCryptographyService _cryptoService;
 
@@ -25,7 +25,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("Decrypted data: " + decrypted);
             Console.WriteLine();
 
-            
+
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace tbk_crypto.Commands
 {
-    internal class EncryptCommand
+    public class EncryptCommand
     {
         private readonly JoseCryptographyService _cryptoService;
 

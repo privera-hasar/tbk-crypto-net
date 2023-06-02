@@ -6,7 +6,7 @@ namespace tbk_crypto.Services
     /// <summary>
     /// https://github.com/dvsekhvalnov/jose-jwt#rs--and-ps--family
     /// </summary>
-    internal class JoseCryptographyService
+    public class JoseCryptographyService
     {
         private readonly IKeyRepository _keyRepository;
 
@@ -14,6 +14,7 @@ namespace tbk_crypto.Services
         {
             _keyRepository = keyRepository;
         }
+
         public string JosePrivateEncrypt(string data)
         {
             var privateKey = GetKeys();

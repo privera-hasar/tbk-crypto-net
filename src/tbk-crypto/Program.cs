@@ -11,16 +11,16 @@ var command = new CommandLineProcessor().ReadCommand();
 
 switch (command.Command)
 {
-    case Commands.Encrypt:
+    case SupportedCommands.Encrypt:
         Factory.GetInstance().GetEncryptCommand().Run(command.Argument);
         break;
-    case Commands.Decrypt:
+    case SupportedCommands.Decrypt:
         Factory.GetInstance().GetDecryptCommand().Run(command.Argument);
         break;
-    case Commands.FullTest:
+    case SupportedCommands.FullTest:
         Factory.GetInstance().GetFullTestCommand().Run(command.Argument);
         break;
-    case Commands.Error:
+    case SupportedCommands.Error:
     default:
         Console.WriteLine("Invalid parameters.");
         break;

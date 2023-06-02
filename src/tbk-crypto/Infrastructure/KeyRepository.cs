@@ -4,7 +4,7 @@ using tbk_crypto.Entities;
 
 namespace tbk_crypto.Infrastructure
 {
-    internal class KeyRepository : IKeyRepository
+    public class KeyRepository : IKeyRepository
     {
         private static string KEYS_FILE = "keys.json";
         private static string PUBLIC_KEY_FILE = "public-key.json";

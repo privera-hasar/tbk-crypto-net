@@ -8,24 +8,24 @@
       "commandName": "Project",
       "commandLineArgs": "--encrypt \"esto es una prueba\""
     },
+    "Encrypt (short)": {
+      "commandName": "Project",
+      "commandLineArgs": "-e \"esto es una prueba\""
+    },
+    "Decrypt": {
+      "commandName": "Project",
+      "commandLineArgs": "--decrypt \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
+    },
+    "Decrypt (short)": {
+      "commandName": "Project",
+      "commandLineArgs": "-d \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
+    },
     "Full test default": {
       "commandName": "Project"
     },
     "Full test arg": {
       "commandName": "Project",
       "commandLineArgs": "\"esto es una prueba\""
-    },
-    "Decrypt": {
-      "commandName": "Project",
-      "commandLineArgs": "--decrypt \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
-    },
-    "Encrypt (short)": {
-      "commandName": "Project",
-      "commandLineArgs": "-e \"esto es una prueba\""
-    },
-    "Decrypt (short)": {
-      "commandName": "Project",
-      "commandLineArgs": "-d \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
     }
   }
 }

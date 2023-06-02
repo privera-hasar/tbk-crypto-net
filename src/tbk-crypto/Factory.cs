@@ -28,7 +28,8 @@ namespace tbk_crypto
 
         public KeyRepository GetKeyRepository()
         {
-            if (_repository == null) {
+            if (_repository == null)
+            {
                 _repository = new KeyRepository();
             }
 

@@ -2,7 +2,7 @@
 
 namespace tbk_crypto.Infrastructure
 {
-    internal interface IKeyRepository
+    public interface IKeyRepository
     {
         KeyPair GetKeys();
         PublicKey GetPublicKey();
