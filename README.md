@@ -15,7 +15,7 @@ tbk-cripto -e "valor a encriptar"
 
 ### Desencriptación de datos
 
-El sistema desencriptará el valor especificado con la llave pública mostrando el resultado por pantalla.
+El sistema desencriptará el valor especificado con la llave privada mostrando el resultado por pantalla.
 ```
 tbk-cripto --decrypt "valor a desencriptar"
 ```
