@@ -21,7 +21,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("Data: " + data);
             Console.WriteLine();
 
-            var decrypted = _cryptoService.JosePublicDecrypt(data);
+            var decrypted = _cryptoService.JosePrivateDecrypt(data);
             Console.WriteLine("Decrypted data: " + decrypted);
             Console.WriteLine();
 
