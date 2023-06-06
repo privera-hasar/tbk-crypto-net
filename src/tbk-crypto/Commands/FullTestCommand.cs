@@ -4,9 +4,9 @@ namespace tbk_crypto.Commands
 {
     public class FullTestCommand
     {
-        private readonly JoseCryptographyService _cryptoService;
+        private readonly IJoseCryptographyService _cryptoService;
 
-        public FullTestCommand(JoseCryptographyService cryptoService)
+        public FullTestCommand(IJoseCryptographyService cryptoService)
         {
             _cryptoService = cryptoService;
         }
@@ -26,7 +26,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("===========================================");
             Console.WriteLine();
 
-            var privateKeyEncrypted = _cryptoService.JosePrivateEncrypt(data);
+            var privateKeyEncrypted = _cryptoService.PrivateEncrypt(data);
             Console.WriteLine("Encrypted data: " + privateKeyEncrypted);
             Console.WriteLine();
 
@@ -35,7 +35,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("===========================================");
             Console.WriteLine();
 
-            var privateKeyEncryptedPrivateDecrypted = _cryptoService.JosePrivateDecrypt(privateKeyEncrypted);
+            var privateKeyEncryptedPrivateDecrypted = _cryptoService.PrivateDecrypt(privateKeyEncrypted);
             Console.WriteLine("Decrypted data: " + privateKeyEncryptedPrivateDecrypted);
             Console.WriteLine();
 
@@ -44,7 +44,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("===========================================");
             Console.WriteLine();
 
-            var privateKeyEncryptedPublicDecrypted = _cryptoService.JosePublicDecrypt(privateKeyEncrypted);
+            var privateKeyEncryptedPublicDecrypted = _cryptoService.PublicDecrypt(privateKeyEncrypted);
             Console.WriteLine("Decrypted data: " + privateKeyEncryptedPublicDecrypted);
             Console.WriteLine();
 
@@ -53,7 +53,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("===========================================");
             Console.WriteLine();
 
-            var publicKeyEncrypted = _cryptoService.JosePublicEncrypt(data);
+            var publicKeyEncrypted = _cryptoService.PublicEncrypt(data);
             Console.WriteLine("Encrypted data: " + publicKeyEncrypted);
             Console.WriteLine();
 
@@ -62,7 +62,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("===========================================");
             Console.WriteLine();
 
-            var publicKeyEncryptedPrivateDecrypted = _cryptoService.JosePrivateDecrypt(publicKeyEncrypted);
+            var publicKeyEncryptedPrivateDecrypted = _cryptoService.PrivateDecrypt(publicKeyEncrypted);
             Console.WriteLine("Decrypted data: " + publicKeyEncryptedPrivateDecrypted);
             Console.WriteLine();
 
@@ -73,7 +73,7 @@ namespace tbk_crypto.Commands
 
             try
             {
-                var publicKeyEncryptedPublicDecrypted = _cryptoService.JosePublicDecrypt(publicKeyEncrypted);
+                var publicKeyEncryptedPublicDecrypted = _cryptoService.PublicDecrypt(publicKeyEncrypted);
                 Console.WriteLine("Decrypted data: " + publicKeyEncryptedPublicDecrypted);
                 Console.WriteLine();
             }

@@ -129,7 +129,6 @@ namespace tbk_crypto.test.Commands
             var args = new[] { "tbk_crypto.dll", command, data };
 
             var expectedCommand = SupportedCommands.Error;
-            var expectedArgument = data;
 
             var sut = CreateSut();
             var actual = sut.ReadCommand(args);
@@ -148,7 +147,6 @@ namespace tbk_crypto.test.Commands
             var args = new[] { "tbk_crypto.dll", command, data, "invalid-argument" };
 
             var expectedCommand = SupportedCommands.Error;
-            var expectedArgument = data;
 
             var sut = CreateSut();
             var actual = sut.ReadCommand(args);

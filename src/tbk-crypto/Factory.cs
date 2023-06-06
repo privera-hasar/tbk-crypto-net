@@ -4,12 +4,13 @@ using tbk_crypto.Services;
 
 namespace tbk_crypto
 {
-    internal class Factory
+    public class Factory
     {
         private static Factory? instance;
 
-        private KeyRepository? _repository;
-        private JoseCryptographyService? _service;
+        private IKeyRepository? _repository;
+        private IFileReader? _reader;
+        private IJoseCryptographyService? _service;
         private FullTestCommand? _fullTestCommand;
         private EncryptCommand? _encryptCommand;
         private DecryptCommand? _decryptCommand;
@@ -26,17 +27,27 @@ namespace tbk_crypto
             return instance;
         }
 
-        public KeyRepository GetKeyRepository()
+        public IKeyRepository GetKeyRepository()
         {
             if (_repository == null)
             {
-                _repository = new KeyRepository();
+                _repository = new KeyRepository(GetFileReader());
             }
 
             return _repository;
         }
 
-        public JoseCryptographyService GetJoseCryptographyService()
+        public IFileReader GetFileReader()
+        {
+            if (_reader == null)
+            {
+                _reader = new FileReader();
+            }
+
+            return _reader;
+        }
+
+        public IJoseCryptographyService GetJoseCryptographyService()
         {
             if (_service == null)
             {

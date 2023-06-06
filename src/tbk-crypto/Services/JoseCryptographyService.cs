@@ -6,7 +6,7 @@ namespace tbk_crypto.Services
     /// <summary>
     /// https://github.com/dvsekhvalnov/jose-jwt#rs--and-ps--family
     /// </summary>
-    public class JoseCryptographyService
+    public class JoseCryptographyService : IJoseCryptographyService
     {
         private readonly IKeyRepository _keyRepository;
 
@@ -15,29 +15,28 @@ namespace tbk_crypto.Services
             _keyRepository = keyRepository;
         }
 
-        public string JosePrivateEncrypt(string data)
+        public string PrivateEncrypt(string data)
         {
             var privateKey = GetKeys();
 
             return JWT.Encode(data, privateKey, JwsAlgorithm.RS256);
-            //return JWT.Encode(data, privateKey, JweAlgorithm.RSA_OAEP, JweEncryption.A256GCM);
         }
 
-        public string JosePrivateDecrypt(string data)
+        public string PrivateDecrypt(string data)
         {
             var privateKey = GetKeys();
 
             return JWT.Decode(data, privateKey, JwsAlgorithm.RS256);
         }
 
-        public string JosePublicEncrypt(string data)
+        public string PublicEncrypt(string data)
         {
             var publicKey = GetPublicKey();
 
             return JWT.Encode(data, publicKey, JweAlgorithm.RSA_OAEP, JweEncryption.A256GCM);
         }
 
-        public string JosePublicDecrypt(string data)
+        public string PublicDecrypt(string data)
         {
             var publicKey = GetPublicKey();
 

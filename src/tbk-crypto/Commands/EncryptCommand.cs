@@ -4,9 +4,9 @@ namespace tbk_crypto.Commands
 {
     public class EncryptCommand
     {
-        private readonly JoseCryptographyService _cryptoService;
+        private readonly IJoseCryptographyService _cryptoService;
 
-        public EncryptCommand(JoseCryptographyService cryptoService)
+        public EncryptCommand(IJoseCryptographyService cryptoService)
         {
             _cryptoService = cryptoService;
         }
@@ -21,7 +21,7 @@ namespace tbk_crypto.Commands
             Console.WriteLine("Data: " + data);
             Console.WriteLine();
 
-            var encrypted = _cryptoService.JosePublicEncrypt(data);
+            var encrypted = _cryptoService.PublicEncrypt(data);
             Console.WriteLine("Encrypted data: " + encrypted);
             Console.WriteLine();
         }
