@@ -15,32 +15,28 @@ namespace tbk_crypto.Services
             _keyRepository = keyRepository;
         }
 
-        public string PrivateEncrypt(string data)
+        public string PrivateDecrypt(string token)
         {
             var privateKey = GetKeys();
 
-            return JWT.Encode(data, privateKey, JwsAlgorithm.RS256);
+            var jwe = JWE.Decrypt(token, privateKey);
+
+            return jwe.Plaintext;
         }
 
-        public string PrivateDecrypt(string data)
-        {
-            var privateKey = GetKeys();
-
-            return JWT.Decode(data, privateKey, JwsAlgorithm.RS256);
-        }
-
-        public string PublicEncrypt(string data)
+        public string PublicEncrypt(string plainText)
         {
             var publicKey = GetPublicKey();
+            var jsonPublicKey = _keyRepository.GetJsonPublicKey();
 
-            return JWT.Encode(data, publicKey, JweAlgorithm.RSA_OAEP, JweEncryption.A256GCM);
-        }
+            var recipients = new[] { new JweRecipient(JweAlgorithm.RSA_OAEP_256, publicKey) };
 
-        public string PublicDecrypt(string data)
-        {
-            var publicKey = GetPublicKey();
+            var extraProtectedHeaders = new Dictionary<string, object> {
+                { "app-key", jsonPublicKey }
+            };
 
-            return JWT.Decode(data, publicKey, JwsAlgorithm.RS256);
+            return JWE.Encrypt(plainText, recipients, JweEncryption.A256GCM, null, SerializationMode.Compact, JweCompression.DEF, extraProtectedHeaders);
+            //return JWT.Encode(plainText, publicKey, JweAlgorithm.RSA_OAEP, JweEncryption.A256GCM);
         }
 
         public Jwk GetKeys()

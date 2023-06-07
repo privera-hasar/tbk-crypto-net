@@ -1,9 +1,9 @@
 ﻿using tbk_crypto;
 using tbk_crypto.Commands;
 
-Console.WriteLine("===========================================");
+Console.WriteLine("================================================");
 Console.WriteLine("TBK Jose Crypto Conceptual Test");
-Console.WriteLine("===========================================");
+Console.WriteLine("================================================");
 Console.WriteLine();
 
 

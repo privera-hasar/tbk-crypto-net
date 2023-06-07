@@ -13,16 +13,16 @@ namespace tbk_crypto.Commands
 
         public void Run(string data)
         {
-            Console.WriteLine("===========================================");
-            Console.WriteLine("Encrypting data with public key");
-            Console.WriteLine("===========================================");
+            Console.WriteLine("================================================");
+            Console.WriteLine("Creating JWE token with public key");
+            Console.WriteLine("================================================");
             Console.WriteLine();
 
-            Console.WriteLine("Data: " + data);
+            Console.WriteLine("Plain text: " + data);
             Console.WriteLine();
 
             var encrypted = _cryptoService.PublicEncrypt(data);
-            Console.WriteLine("Encrypted data: " + encrypted);
+            Console.WriteLine("JWE Token: " + encrypted);
             Console.WriteLine();
         }
     }

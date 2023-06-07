@@ -6,5 +6,6 @@ namespace tbk_crypto.Infrastructure
     {
         KeyPair GetKeys();
         PublicKey GetPublicKey();
+        string GetJsonPublicKey();
     }
 }

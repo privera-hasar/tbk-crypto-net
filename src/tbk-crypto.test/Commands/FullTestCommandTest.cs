@@ -17,28 +17,17 @@ namespace tbk_crypto.test.Commands
         [TestMethod]
         public void Run()
         {
-            string data = "unit-test";
-            string privateEncryptedData = "private";
-            string publicEncryptedData = "public";
+            string plainText = "unit-test";
+            string token = "token";
 
-            _cryptoService.Setup(x => x.PrivateEncrypt(data)).Returns(privateEncryptedData);
-            _cryptoService.Setup(x => x.PublicEncrypt(data)).Returns(publicEncryptedData);
-
-            _cryptoService.Setup(x => x.PrivateDecrypt(privateEncryptedData)).Returns(data);
-            _cryptoService.Setup(x => x.PublicDecrypt(privateEncryptedData)).Returns(data);
-
-            _cryptoService.Setup(x => x.PrivateDecrypt(publicEncryptedData)).Returns(data);
-            _cryptoService.Setup(x => x.PublicDecrypt(publicEncryptedData)).Returns(data);
-
+            _cryptoService.Setup(x => x.PublicEncrypt(plainText)).Returns(token);
+            _cryptoService.Setup(x => x.PrivateDecrypt(token)).Returns(plainText);
+            
             var sut = CreateSut();
-            sut.Run(data);
+            sut.Run(plainText);
 
-            _cryptoService.Verify(x => x.PublicEncrypt(data), Times.Once());
-            _cryptoService.Verify(x => x.PrivateEncrypt(data), Times.Once());
-            _cryptoService.Verify(x => x.PublicDecrypt(privateEncryptedData), Times.Once());
-            _cryptoService.Verify(x => x.PublicDecrypt(privateEncryptedData), Times.Once());
-            _cryptoService.Verify(x => x.PrivateDecrypt(publicEncryptedData), Times.Once());
-            _cryptoService.Verify(x => x.PrivateDecrypt(publicEncryptedData), Times.Once());
+            _cryptoService.Verify(x => x.PublicEncrypt(plainText), Times.Once());
+            _cryptoService.Verify(x => x.PrivateDecrypt(token), Times.Once());
         }
     }
 }

@@ -36,6 +36,8 @@ namespace tbk_crypto.test.Services
             Alg = "RSA-OAEP-256"
         };
 
+        private readonly string _jsonPublicKey = "{\r\n  \"kty\": \"RSA\",\r\n  \"e\": \"AQAB\",\r\n  \"use\": \"enc\",\r\n  \"kid\": \"4vsc3Qk32IrLnMcmqkLLgtJNNm3GhUP3Ztz2unBPBdM\",\r\n  \"alg\": \"RSA-OAEP-256\",\r\n  \"n\": \"lbbzxoiQ2wikgVqiKx2sz2sixf8wWd0yrBQ2V2VYW58ogGsClk6KthYI8pXH9wPGZoOmQ7gD6ODpLMjwGl0g_QMAM6PeDFW4qDgyBgs0f8Z6sNrLLYgxFTK_gCUAGIDkJeNdtQFKNXHQTSn9IvirTjMBi9iUMpIjqXZQ6szL3YV6hUr8y1NKB3qPLKhkxDN6T7pr83EXChkAsQhA5odkwswEFd5zujOwqCdsdbGMjNBKTM6V1Q2h_7krJan7c8izR1LN6rp3vYQdmYRjqU4sUWtLqP19ZlmjiGaHiOVLGHsDfpg3Cc-0bpFJXi3k44mmVurgA5h-_DBTWcI4l2r00Q\"\r\n}";
+
         private JoseCryptographyService CreateSut()
         {
             return new JoseCryptographyService(_keyRepository.Object);
@@ -44,16 +46,22 @@ namespace tbk_crypto.test.Services
         [TestMethod]
         public void PublicEncrypt()
         {
-            var data = "unit-test";
+            var plainText = "unit-test";
 
             _keyRepository.Setup(x => x.GetPublicKey()).Returns(_publicKey);
+            _keyRepository.Setup(x => x.GetJsonPublicKey()).Returns(_jsonPublicKey);
 
             var sut = CreateSut();
-            var actual = sut.PublicEncrypt(data);
+            var actual = sut.PublicEncrypt(plainText);
 
             Assert.IsNotNull(actual);
 
+            // Validate compact format
+            Assert.IsTrue(actual.Contains('.'));
+            Assert.AreEqual(5, actual.Split('.').Length);
+
             _keyRepository.Verify(x => x.GetPublicKey(), Times.Once);
+            _keyRepository.Verify(x => x.GetJsonPublicKey(), Times.Once);
             _keyRepository.Verify(x => x.GetKeys(), Times.Never);
         }
 
@@ -119,11 +127,12 @@ namespace tbk_crypto.test.Services
         }
 
         [TestMethod]
-        public void TbkDecryptChallenge()
+        public void EncryptDecrypt()
         {
             var data = "unit-test";
 
             _keyRepository.Setup(x => x.GetPublicKey()).Returns(_publicKey);
+            _keyRepository.Setup(x => x.GetJsonPublicKey()).Returns(_jsonPublicKey);
             _keyRepository.Setup(x => x.GetKeys()).Returns(_privateKey);
 
             var sut = CreateSut();
@@ -134,6 +143,7 @@ namespace tbk_crypto.test.Services
             Assert.AreEqual(data, actual);
 
             _keyRepository.Verify(x => x.GetPublicKey(), Times.Once);
+            _keyRepository.Verify(x => x.GetJsonPublicKey(), Times.Once);
             _keyRepository.Verify(x => x.GetKeys(), Times.Once);
         }
     }

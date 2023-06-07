@@ -11,18 +11,18 @@ namespace tbk_crypto.Commands
             _cryptoService = cryptoService;
         }
 
-        public void Run(string data)
+        public void Run(string token)
         {
-            Console.WriteLine("===========================================");
-            Console.WriteLine("Decrypting data with public key");
-            Console.WriteLine("===========================================");
+            Console.WriteLine("================================================");
+            Console.WriteLine("Extracting data from JWE token with public key");
+            Console.WriteLine("================================================");
             Console.WriteLine();
 
-            Console.WriteLine("Data: " + data);
+            Console.WriteLine("JWE Token: " + token);
             Console.WriteLine();
 
-            var decrypted = _cryptoService.PrivateDecrypt(data);
-            Console.WriteLine("Decrypted data: " + decrypted);
+            var decrypted = _cryptoService.PrivateDecrypt(token);
+            Console.WriteLine("Plain text: " + decrypted);
             Console.WriteLine();
 
 

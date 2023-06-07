@@ -6,9 +6,7 @@ namespace tbk_crypto.Services
     {
         Jwk GetKeys();
         Jwk GetPublicKey();
-        string PrivateDecrypt(string data);
-        string PrivateEncrypt(string data);
-        string PublicDecrypt(string data);
-        string PublicEncrypt(string data);
+        string PrivateDecrypt(string token);
+        string PublicEncrypt(string plainText);
     }
 }
