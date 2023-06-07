@@ -52,6 +52,40 @@ namespace tbk_crypto.Services
             }
         }
 
+        public JweToken PrivateDecryptJwe(string token)
+        {
+            var privateKey = GetKeys();
+
+            return JWE.Decrypt(token, privateKey, PrivateDecryptJweAlgorithm, PrivateDecryptJweEncryption);
+        }
+
+        public JweToken PrivateDecryptJweSetting(string token)
+        {
+            var privateKey = GetKeys();
+
+            JwtSettings settings = new();
+            settings.Jwe(PrivateDecryptJweEncryption);
+            return JWE.Decrypt(token, privateKey, PrivateDecryptJweAlgorithm, PrivateDecryptJweEncryption, settings);
+        }
+
+        public JweToken PrivateDecryptJweNoParams(string token)
+        {
+            var privateKey = GetKeys();
+
+            return JWE.Decrypt(token, privateKey);
+        }
+
+        public JweToken PrivateDecryptJweHeaderParams(string token)
+        {
+            var privateKey = GetKeys();
+
+            var header = JWT.Headers(token);
+            string alg = (string)header["alg"];
+            string enc = (string)header["enc"];
+            return JWE.Decrypt(token, privateKey);
+        }
+
+
         public string PublicEncrypt(string data)
         {
             var publicKey = GetPublicKey();
