@@ -1,5 +1,6 @@
 ﻿using Jose;
 using tbk_crypto.Infrastructure;
+using tbk_crypto.Mappers;
 
 namespace tbk_crypto.Services
 {
@@ -9,74 +10,91 @@ namespace tbk_crypto.Services
     public class JoseCryptographyService : IJoseCryptographyService
     {
         private readonly IKeyRepository _keyRepository;
+        private readonly IKeyPairMapper _keyPairMapper;
+        private readonly IPublicKeyMapper _publicKeyMapper;
 
-        public JoseCryptographyService(IKeyRepository keyRepository)
+        public JoseCryptographyService(
+            IKeyRepository keyRepository,
+            IKeyPairMapper keyPairMapper,
+            IPublicKeyMapper publicKeyMapper)
         {
             _keyRepository = keyRepository;
+            _keyPairMapper = keyPairMapper;
+            _publicKeyMapper = publicKeyMapper;
         }
 
-        public string PrivateDecrypt(string token)
+        public string HasarEncrypt(string plainText)
         {
-            var privateKey = GetKeys();
+            var tbkPublicKey = GetHasarPublicKey();
+            var hasarPublicKey = _keyRepository.GetJsonHasarPublicKey();
+
+            var recipients = new[] { new JweRecipient(JweAlgorithm.RSA_OAEP_256, tbkPublicKey) };
+
+            var extraProtectedHeaders = new Dictionary<string, object> {
+                { "app-key", hasarPublicKey }
+            };
+
+            return JWE.Encrypt(plainText, recipients, JweEncryption.A256GCM, null, SerializationMode.Compact, JweCompression.DEF, extraProtectedHeaders);
+        }
+
+        public string HasarDecrypt(string token)
+        {
+            var privateKey = GetHasarKeys();
 
             var jwe = JWE.Decrypt(token, privateKey);
 
             return jwe.Plaintext;
         }
 
-        public string PublicEncrypt(string plainText)
+        public string TbkEncrypt(string plainText)
         {
-            var publicKey = GetPublicKey();
-            var jsonPublicKey = _keyRepository.GetJsonPublicKey();
+            var tbkPublicKey = GetTbkPublicKey();
+            var hasarPublicKey = _keyRepository.GetJsonHasarPublicKey();
 
-            var recipients = new[] { new JweRecipient(JweAlgorithm.RSA_OAEP_256, publicKey) };
+            var recipients = new[] { new JweRecipient(JweAlgorithm.RSA_OAEP_256, tbkPublicKey) };
 
             var extraProtectedHeaders = new Dictionary<string, object> {
-                { "app-key", jsonPublicKey }
+                { "app-key", hasarPublicKey }
             };
 
             return JWE.Encrypt(plainText, recipients, JweEncryption.A256GCM, null, SerializationMode.Compact, JweCompression.DEF, extraProtectedHeaders);
-            //return JWT.Encode(plainText, publicKey, JweAlgorithm.RSA_OAEP, JweEncryption.A256GCM);
         }
 
-        public Jwk GetKeys()
+        public string TbkDecrypt(string token)
         {
-            var keys = _keyRepository.GetKeys();
+            var privateKey = GetTbkKeys();
 
-            var privateKey = new Jwk
-            {
-                E = keys.E,
-                N = keys.N,
-                P = keys.P,
-                Q = keys.Q,
-                D = keys.D,
-                DP = keys.DP,
-                DQ = keys.DQ,
-                QI = keys.QI,
-                Kty = keys.Kty,
-                Use = keys.Use,
-                KeyId = keys.KeyId,
-                Alg = keys.Alg
-            };
+            var jwe = JWE.Decrypt(token, privateKey);
 
-            return privateKey;
+            return jwe.Plaintext;
         }
 
-        public Jwk GetPublicKey()
+        public Jwk GetHasarKeys()
         {
-            var key = _keyRepository.GetPublicKey();
+            var keys = _keyRepository.GetHasarKeys();
 
-            var publicKey = new Jwk
-            {
-                Kty = key.Kty,
-                E = key.E,
-                Use = key.Use,
-                KeyId = key.Kid,
-                Alg = key.Alg,
-                N = key.N
-            };
+            return _keyPairMapper.map(keys);
+        }
 
-            return publicKey;
+        public Jwk GetHasarPublicKey()
+        {
+            var key = _keyRepository.GetHasarPublicKey();
+
+            return _publicKeyMapper.map(key);
+        }
+
+        public Jwk GetTbkKeys()
+        {
+            var keys = _keyRepository.GetTbkKeys();
+
+            return _keyPairMapper.map(keys);
+        }
+
+        public Jwk GetTbkPublicKey()
+        {
+            var key = _keyRepository.GetTbkPublicKey();
+
+            return _publicKeyMapper.map(key);
         }
 
     }

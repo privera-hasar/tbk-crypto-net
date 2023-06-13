@@ -4,8 +4,10 @@ namespace tbk_crypto.Infrastructure
 {
     public interface IKeyRepository
     {
-        KeyPair GetKeys();
-        PublicKey GetPublicKey();
-        string GetJsonPublicKey();
+        KeyPair GetHasarKeys();
+        PublicKey GetHasarPublicKey();
+        string GetJsonHasarPublicKey();
+        KeyPair GetTbkKeys();
+        PublicKey GetTbkPublicKey();
     }
 }

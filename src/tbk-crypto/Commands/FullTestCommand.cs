@@ -2,7 +2,7 @@
 
 namespace tbk_crypto.Commands
 {
-    public class FullTestCommand
+    public class FullTestCommand : AbstractCommand
     {
         private readonly IJoseCryptographyService _cryptoService;
 
@@ -11,32 +11,35 @@ namespace tbk_crypto.Commands
             _cryptoService = cryptoService;
         }
 
-        public void Run(string data)
+        public override void Run(string data)
         {
-            Console.WriteLine("================================================");
-            Console.WriteLine("Full test");
-            Console.WriteLine("================================================");
-            Console.WriteLine();
+            WriteTitle("Full test");
 
             Console.WriteLine("Plain text: " + data);
             Console.WriteLine();
 
-            Console.WriteLine("================================================");
-            Console.WriteLine("Creating JWE token with public key");
-            Console.WriteLine("================================================");
+            WriteTitle("Creating JWE token with Hasar public key");
+
+            var hasarEncrypted = _cryptoService.HasarEncrypt(data);
+            Console.WriteLine("JWE Token: " + hasarEncrypted);
             Console.WriteLine();
 
-            var publicKeyEncrypted = _cryptoService.PublicEncrypt(data);
-            Console.WriteLine("JWE Token: " + publicKeyEncrypted);
+            WriteTitle("Extracting JWE token plain text with Hasar private key");
+
+            var hasarDecrypted = _cryptoService.HasarDecrypt(hasarEncrypted);
+            Console.WriteLine("Decrypted data: " + hasarDecrypted);
             Console.WriteLine();
 
-            Console.WriteLine("================================================");
-            Console.WriteLine("Extracting JWE token plain text with private key");
-            Console.WriteLine("================================================");
+            WriteTitle("Creating JWE token with TBK public key");
+
+            var tbkEncrypted = _cryptoService.TbkEncrypt(data);
+            Console.WriteLine("JWE Token: " + tbkEncrypted);
             Console.WriteLine();
 
-            var publicKeyEncryptedPrivateDecrypted = _cryptoService.PrivateDecrypt(publicKeyEncrypted);
-            Console.WriteLine("Decrypted data: " + publicKeyEncryptedPrivateDecrypted);
+            WriteTitle("Extracting JWE token plain text with TBK private key");
+
+            var tbkDecrypted = _cryptoService.TbkDecrypt(tbkEncrypted);
+            Console.WriteLine("Decrypted data: " + tbkDecrypted);
             Console.WriteLine();
         }
     }

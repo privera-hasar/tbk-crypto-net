@@ -13,10 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="keys.json">
+    <None Update="tbk-keys.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="public-key.json">
+    <None Update="hasar-keys.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="tbk-public-key.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="hasar-public-key.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

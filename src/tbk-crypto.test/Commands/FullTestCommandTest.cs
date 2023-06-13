@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using Jose;
+using Moq;
+using Newtonsoft.Json.Linq;
 using tbk_crypto.Commands;
 using tbk_crypto.Services;
 
@@ -18,16 +20,21 @@ namespace tbk_crypto.test.Commands
         public void Run()
         {
             string plainText = "unit-test";
-            string token = "token";
+            string hasarToken = "hasar-token";
+            string tbkToken = "tbk-token";
 
-            _cryptoService.Setup(x => x.PublicEncrypt(plainText)).Returns(token);
-            _cryptoService.Setup(x => x.PrivateDecrypt(token)).Returns(plainText);
-            
+            _cryptoService.Setup(x => x.HasarEncrypt(plainText)).Returns(hasarToken);
+            _cryptoService.Setup(x => x.HasarDecrypt(hasarToken)).Returns(plainText);
+            _cryptoService.Setup(x => x.TbkEncrypt(plainText)).Returns(tbkToken);
+            _cryptoService.Setup(x => x.TbkDecrypt(tbkToken)).Returns(plainText);
+
             var sut = CreateSut();
             sut.Run(plainText);
 
-            _cryptoService.Verify(x => x.PublicEncrypt(plainText), Times.Once());
-            _cryptoService.Verify(x => x.PrivateDecrypt(token), Times.Once());
+            _cryptoService.Verify(x => x.HasarEncrypt(plainText), Times.Once());
+            _cryptoService.Verify(x => x.HasarDecrypt(hasarToken), Times.Once());
+            _cryptoService.Verify(x => x.TbkEncrypt(plainText), Times.Once());
+            _cryptoService.Verify(x => x.TbkDecrypt(tbkToken), Times.Once());
         }
     }
 }

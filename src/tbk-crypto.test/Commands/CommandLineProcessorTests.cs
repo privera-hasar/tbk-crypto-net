@@ -87,6 +87,82 @@ namespace tbk_crypto.test.Commands
         }
 
         [TestMethod]
+        public void ReadCommand_Encrypt_Hasar()
+        {
+            string command = "--encrypt-hasar";
+            string data = "unit-test";
+
+            var args = new[] { "tbk_crypto.dll", command, data };
+
+            var expectedCommand = SupportedCommands.EncryptHasar;
+            var expectedArgument = data;
+
+            var sut = CreateSut();
+            var actual = sut.ReadCommand(args);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(expectedCommand, actual.Command);
+            Assert.AreEqual(expectedArgument, actual.Argument);
+        }
+
+        [TestMethod]
+        public void ReadCommand_Encrypt_Hasar_Short()
+        {
+            string command = "-E";
+            string data = "unit-test";
+
+            var args = new[] { "tbk_crypto.dll", command, data };
+
+            var expectedCommand = SupportedCommands.EncryptHasar;
+            var expectedArgument = data;
+
+            var sut = CreateSut();
+            var actual = sut.ReadCommand(args);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(expectedCommand, actual.Command);
+            Assert.AreEqual(expectedArgument, actual.Argument);
+        }
+
+        [TestMethod]
+        public void ReadCommand_Decrypt_Tbk()
+        {
+            string command = "--decrypt-tbk";
+            string data = "unit-test";
+
+            var args = new[] { "tbk_crypto.dll", command, data };
+
+            var expectedCommand = SupportedCommands.DecryptTbk;
+            var expectedArgument = data;
+
+            var sut = CreateSut();
+            var actual = sut.ReadCommand(args);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(expectedCommand, actual.Command);
+            Assert.AreEqual(expectedArgument, actual.Argument);
+        }
+
+        [TestMethod]
+        public void ReadCommand_Decrypt_Tbk_Short()
+        {
+            string command = "-D";
+            string data = "unit-test";
+
+            var args = new[] { "tbk_crypto.dll", command, data };
+
+            var expectedCommand = SupportedCommands.DecryptTbk;
+            var expectedArgument = data;
+
+            var sut = CreateSut();
+            var actual = sut.ReadCommand(args);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(expectedCommand, actual.Command);
+            Assert.AreEqual(expectedArgument, actual.Argument);
+        }
+
+        [TestMethod]
         public void ReadCommand_FullTest()
         {
             string data = "unit-test";

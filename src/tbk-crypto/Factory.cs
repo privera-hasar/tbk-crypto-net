@@ -1,5 +1,6 @@
 ﻿using tbk_crypto.Commands;
 using tbk_crypto.Infrastructure;
+using tbk_crypto.Mappers;
 using tbk_crypto.Services;
 
 namespace tbk_crypto
@@ -11,9 +12,11 @@ namespace tbk_crypto
         private IKeyRepository? _repository;
         private IFileReader? _reader;
         private IJoseCryptographyService? _service;
+        private IKeyPairMapper? _keyPairMapper;
+        private IPublicKeyMapper? _publicKeyMapper;
         private FullTestCommand? _fullTestCommand;
-        private EncryptCommand? _encryptCommand;
-        private DecryptCommand? _decryptCommand;
+        private TbkEncryptCommand? _encryptCommand;
+        private HasarDecryptCommand? _decryptCommand;
 
         private Factory() { }
 
@@ -31,7 +34,8 @@ namespace tbk_crypto
         {
             if (_repository == null)
             {
-                _repository = new KeyRepository(GetFileReader());
+                _repository = new KeyRepository(
+                    GetFileReader());
             }
 
             return _repository;
@@ -51,27 +55,52 @@ namespace tbk_crypto
         {
             if (_service == null)
             {
-                _service = new JoseCryptographyService(GetKeyRepository());
+                _service = new JoseCryptographyService(
+                    GetKeyRepository(),
+                    GetKeyPairMapper(),
+                    GetPublicKeyMapper());
             }
 
             return _service;
         }
 
-        public EncryptCommand GetEncryptCommand()
+        public IKeyPairMapper GetKeyPairMapper()
+        {
+            if (_keyPairMapper == null)
+            {
+                _keyPairMapper = new KeyPairMapper();
+            }
+
+            return _keyPairMapper;
+        }
+
+        public IPublicKeyMapper GetPublicKeyMapper()
+        {
+            if (_publicKeyMapper == null)
+            {
+                _publicKeyMapper = new PublicKeyMapper();
+            }
+
+            return _publicKeyMapper;
+        }
+
+        public TbkEncryptCommand GetEncryptCommand()
         {
             if (_encryptCommand == null)
             {
-                _encryptCommand = new EncryptCommand(GetJoseCryptographyService());
+                _encryptCommand = new TbkEncryptCommand(
+                    GetJoseCryptographyService());
             }
 
             return _encryptCommand;
         }
 
-        public DecryptCommand GetDecryptCommand()
+        public HasarDecryptCommand GetDecryptCommand()
         {
             if (_decryptCommand == null)
             {
-                _decryptCommand = new DecryptCommand(GetJoseCryptographyService());
+                _decryptCommand = new HasarDecryptCommand(
+                    GetJoseCryptographyService());
             }
 
             return _decryptCommand;
@@ -81,7 +110,8 @@ namespace tbk_crypto
         {
             if (_fullTestCommand == null)
             {
-                _fullTestCommand = new FullTestCommand(GetJoseCryptographyService());
+                _fullTestCommand = new FullTestCommand(
+                    GetJoseCryptographyService());
             }
 
             return _fullTestCommand;

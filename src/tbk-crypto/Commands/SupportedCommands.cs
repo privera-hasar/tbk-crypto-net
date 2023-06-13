@@ -4,6 +4,8 @@
     {
         Encrypt,
         Decrypt,
+        EncryptHasar,
+        DecryptTbk,
         FullTest,
         Error
     }

@@ -6,26 +6,26 @@
     },
     "Encrypt": {
       "commandName": "Project",
-      "commandLineArgs": "--encrypt \"esto es una prueba\""
+      "commandLineArgs": "--encrypt \"cogito ergo sum\""
     },
     "Encrypt (short)": {
       "commandName": "Project",
-      "commandLineArgs": "-e \"esto es una prueba\""
+      "commandLineArgs": "-e \"cogito ergo sum\""
     },
     "Decrypt": {
       "commandName": "Project",
-      "commandLineArgs": "--decrypt \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
+      "commandLineArgs": "--decrypt \"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiYXBwLWtleSI6IntcclxuICBcImt0eVwiOiBcIlJTQVwiLFxyXG4gIFwiZVwiOiBcIkFRQUJcIixcclxuICBcInVzZVwiOiBcImVuY1wiLFxyXG4gIFwia2lkXCI6IFwiNHZzYzNRazMySXJMbk1jbXFrTExndEpOTm0zR2hVUDNadHoydW5CUEJkTVwiLFxyXG4gIFwiYWxnXCI6IFwiUlNBLU9BRVAtMjU2XCIsXHJcbiAgXCJuXCI6IFwibGJienhvaVEyd2lrZ1ZxaUt4MnN6MnNpeGY4d1dkMHlyQlEyVjJWWVc1OG9nR3NDbGs2S3RoWUk4cFhIOXdQR1pvT21RN2dENk9EcExNandHbDBnX1FNQU02UGVERlc0cURneUJnczBmOFo2c05yTExZZ3hGVEtfZ0NVQUdJRGtKZU5kdFFGS05YSFFUU245SXZpclRqTUJpOWlVTXBJanFYWlE2c3pMM1lWNmhVcjh5MU5LQjNxUExLaGt4RE42VDdwcjgzRVhDaGtBc1FoQTVvZGt3c3dFRmQ1enVqT3dxQ2RzZGJHTWpOQktUTTZWMVEyaF83a3JKYW43YzhpelIxTE42cnAzdllRZG1ZUmpxVTRzVVd0THFQMTlabG1qaUdhSGlPVkxHSHNEZnBnM0NjLTBicEZKWGkzazQ0bW1WdXJnQTVoLV9EQlRXY0k0bDJyMDBRXCJcclxufSIsInppcCI6IkRFRiJ9.aBRvPTGl2R-21xeo9Zbk-Zz8kiekyf1Hatyj6LYrGU_SLbFDa8cjr_a5ddDRoz-MBN1pOFxQuFSDMDf6CvEPQBtyXlyXiPbFr82d-y9hJ8MrTXLvrpzhaVdS2j-0qJsJDcVHIaqHPLzmhcmoDZVqeEBzx7pxpEytyiQVvKaeqXOZTxkyq0LRBuFXnZqrs5_UNmX_GiKoETsobShF695XFTpR_Ny0IOoqyNw36A6oIMQSvFJ9HTDsRK4XCWZdXJqzWs4toEHcWtJs6WdjA1Aia0krG8cIDGXW4b4dTQjevpHL_kYGtMuhvQUbH2GCfvn3xQ_3NI5uTI1xxw3l_sJMuw.IPE6O0lkG-vA3Fu2.xAT1PDqe0Vh761fEkV04Hbw.o9O3mkmoiKTWmFvVE_YYNQ\""
     },
     "Decrypt (short)": {
       "commandName": "Project",
-      "commandLineArgs": "-d \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXN0byBlcyB1bmEgcHJ1ZWJh.JDF8g6rJToWP_a2BQo4gjGgf6eI9mphfbV9TSLdZJoUnX7pcmPMn6PEv-1WiUDNstUR-VmAGhLW20l2V8lWxTczggv6HwliYjfY2U7KquCZjgqa3d3lp0MBJCP7dVIRw9HdsmE51j4el-cR306OZV4sTrJcs6Zj1UbPZ1Ar7Si_7vyFfdLZqds9nM8jrJ_HdGnpiV1q-cLl0wpZgJpE0T9dMUXGvIdux-uY1bRfu8c4LYoBcysC1kJ0pYPR2SyxVwLhTVYoodkUevcn3ZBj3jd7FRXW3SWd_n-xp04PK4gHGMCVu43DGmGtAR5EEfbE4g5_5Ggag1pA7V4cRvAITRQ\""
+      "commandLineArgs": "-d \"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiYXBwLWtleSI6IntcclxuICBcImt0eVwiOiBcIlJTQVwiLFxyXG4gIFwiZVwiOiBcIkFRQUJcIixcclxuICBcInVzZVwiOiBcImVuY1wiLFxyXG4gIFwia2lkXCI6IFwiNHZzYzNRazMySXJMbk1jbXFrTExndEpOTm0zR2hVUDNadHoydW5CUEJkTVwiLFxyXG4gIFwiYWxnXCI6IFwiUlNBLU9BRVAtMjU2XCIsXHJcbiAgXCJuXCI6IFwibGJienhvaVEyd2lrZ1ZxaUt4MnN6MnNpeGY4d1dkMHlyQlEyVjJWWVc1OG9nR3NDbGs2S3RoWUk4cFhIOXdQR1pvT21RN2dENk9EcExNandHbDBnX1FNQU02UGVERlc0cURneUJnczBmOFo2c05yTExZZ3hGVEtfZ0NVQUdJRGtKZU5kdFFGS05YSFFUU245SXZpclRqTUJpOWlVTXBJanFYWlE2c3pMM1lWNmhVcjh5MU5LQjNxUExLaGt4RE42VDdwcjgzRVhDaGtBc1FoQTVvZGt3c3dFRmQ1enVqT3dxQ2RzZGJHTWpOQktUTTZWMVEyaF83a3JKYW43YzhpelIxTE42cnAzdllRZG1ZUmpxVTRzVVd0THFQMTlabG1qaUdhSGlPVkxHSHNEZnBnM0NjLTBicEZKWGkzazQ0bW1WdXJnQTVoLV9EQlRXY0k0bDJyMDBRXCJcclxufSIsInppcCI6IkRFRiJ9.aBRvPTGl2R-21xeo9Zbk-Zz8kiekyf1Hatyj6LYrGU_SLbFDa8cjr_a5ddDRoz-MBN1pOFxQuFSDMDf6CvEPQBtyXlyXiPbFr82d-y9hJ8MrTXLvrpzhaVdS2j-0qJsJDcVHIaqHPLzmhcmoDZVqeEBzx7pxpEytyiQVvKaeqXOZTxkyq0LRBuFXnZqrs5_UNmX_GiKoETsobShF695XFTpR_Ny0IOoqyNw36A6oIMQSvFJ9HTDsRK4XCWZdXJqzWs4toEHcWtJs6WdjA1Aia0krG8cIDGXW4b4dTQjevpHL_kYGtMuhvQUbH2GCfvn3xQ_3NI5uTI1xxw3l_sJMuw.IPE6O0lkG-vA3Fu2.xAT1PDqe0Vh761fEkV04Hbw.o9O3mkmoiKTWmFvVE_YYNQ\""
     },
     "Full test default": {
       "commandName": "Project"
     },
     "Full test arg": {
       "commandName": "Project",
-      "commandLineArgs": "\"esto es una prueba\""
+      "commandLineArgs": "\"cogito ergo sum\""
     }
   }
 }

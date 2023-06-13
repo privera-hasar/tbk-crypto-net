@@ -9,9 +9,9 @@ namespace tbk_crypto.test.Commands
     {
         private readonly Mock<IJoseCryptographyService> _cryptoService = new();
 
-        private EncryptCommand CreateSut()
+        private TbkEncryptCommand CreateSut()
         {
-            return new EncryptCommand(_cryptoService.Object);
+            return new TbkEncryptCommand(_cryptoService.Object);
         }
 
         [TestMethod]
@@ -20,12 +20,12 @@ namespace tbk_crypto.test.Commands
             string data = "unit-test";
             string encryptedData = "tset-tinu";
 
-            _cryptoService.Setup(x => x.PublicEncrypt(data)).Returns(encryptedData);
+            _cryptoService.Setup(x => x.TbkEncrypt(data)).Returns(encryptedData);
 
             var sut = CreateSut();
             sut.Run(data);
 
-            _cryptoService.Verify(x => x.PublicEncrypt(data), Times.Once());
+            _cryptoService.Verify(x => x.TbkEncrypt(data), Times.Once());
         }
     }
 }
