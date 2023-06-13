@@ -26,6 +26,22 @@
     "Full test arg": {
       "commandName": "Project",
       "commandLineArgs": "\"cogito ergo sum\""
+    },
+    "Encrypt Hasar": {
+      "commandName": "Project",
+      "commandLineArgs": "--encrypt-hasar \"cogito ergo sum\""
+    },
+    "Encrypt Hasar (short)": {
+      "commandName": "Project",
+      "commandLineArgs": "-E \"cogito ergo sum\""
+    },
+    "Decrypt TBK": {
+      "commandName": "Project",
+      "commandLineArgs": "--decrypt-tbk \"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiYXBwLWtleSI6IntcclxuICBcImt0eVwiOiBcIlJTQVwiLFxyXG4gIFwiZVwiOiBcIkFRQUJcIixcclxuICBcInVzZVwiOiBcImVuY1wiLFxyXG4gIFwia2lkXCI6IFwiNHZzYzNRazMySXJMbk1jbXFrTExndEpOTm0zR2hVUDNadHoydW5CUEJkTVwiLFxyXG4gIFwiYWxnXCI6IFwiUlNBLU9BRVAtMjU2XCIsXHJcbiAgXCJuXCI6IFwibGJienhvaVEyd2lrZ1ZxaUt4MnN6MnNpeGY4d1dkMHlyQlEyVjJWWVc1OG9nR3NDbGs2S3RoWUk4cFhIOXdQR1pvT21RN2dENk9EcExNandHbDBnX1FNQU02UGVERlc0cURneUJnczBmOFo2c05yTExZZ3hGVEtfZ0NVQUdJRGtKZU5kdFFGS05YSFFUU245SXZpclRqTUJpOWlVTXBJanFYWlE2c3pMM1lWNmhVcjh5MU5LQjNxUExLaGt4RE42VDdwcjgzRVhDaGtBc1FoQTVvZGt3c3dFRmQ1enVqT3dxQ2RzZGJHTWpOQktUTTZWMVEyaF83a3JKYW43YzhpelIxTE42cnAzdllRZG1ZUmpxVTRzVVd0THFQMTlabG1qaUdhSGlPVkxHSHNEZnBnM0NjLTBicEZKWGkzazQ0bW1WdXJnQTVoLV9EQlRXY0k0bDJyMDBRXCJcclxufSIsInppcCI6IkRFRiJ9.Df36peLnlInAOVoS6sNhxQKMPVo8-Pe5mZ2ZztZKUjfgzz-wjZoazzxWC_pL48T2uJcm-RD6BFAZaThIaR9qIWalVrrYU5h6gzLkGto1GqKd41l13rqrBbOabiBL68qu0Qy_IckYYpbgSaVqBmjTE1yTk9iH8sOz0aqPDgpIwDpMg4aNPPcN5ufagbxz1ZcSOfv3aKT0HPaLgnslZr2k1hvDUdxRixzd9J6zYyzK8W0ZBT8DBggMWIScYsRqBEvX4abzA3j8FNXTaxS6f4CYXo9VSZPhom4FtOt29udg9JpcP3yJo4uiNrkBBnqn73fwzJ3h5Ilo2SgVjdRCZ8w1SA.1Z1MBr3LNeoAgDTR.UUzSKXYTKI0vdPWYw8h5pkw.msZqFaR05naMTBqNNy2rNw\""
+    },
+    "Decrypt TBK (short)": {
+      "commandName": "Project",
+      "commandLineArgs": "-D \"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiYXBwLWtleSI6IntcclxuICBcImt0eVwiOiBcIlJTQVwiLFxyXG4gIFwiZVwiOiBcIkFRQUJcIixcclxuICBcInVzZVwiOiBcImVuY1wiLFxyXG4gIFwia2lkXCI6IFwiNHZzYzNRazMySXJMbk1jbXFrTExndEpOTm0zR2hVUDNadHoydW5CUEJkTVwiLFxyXG4gIFwiYWxnXCI6IFwiUlNBLU9BRVAtMjU2XCIsXHJcbiAgXCJuXCI6IFwibGJienhvaVEyd2lrZ1ZxaUt4MnN6MnNpeGY4d1dkMHlyQlEyVjJWWVc1OG9nR3NDbGs2S3RoWUk4cFhIOXdQR1pvT21RN2dENk9EcExNandHbDBnX1FNQU02UGVERlc0cURneUJnczBmOFo2c05yTExZZ3hGVEtfZ0NVQUdJRGtKZU5kdFFGS05YSFFUU245SXZpclRqTUJpOWlVTXBJanFYWlE2c3pMM1lWNmhVcjh5MU5LQjNxUExLaGt4RE42VDdwcjgzRVhDaGtBc1FoQTVvZGt3c3dFRmQ1enVqT3dxQ2RzZGJHTWpOQktUTTZWMVEyaF83a3JKYW43YzhpelIxTE42cnAzdllRZG1ZUmpxVTRzVVd0THFQMTlabG1qaUdhSGlPVkxHSHNEZnBnM0NjLTBicEZKWGkzazQ0bW1WdXJnQTVoLV9EQlRXY0k0bDJyMDBRXCJcclxufSIsInppcCI6IkRFRiJ9.Df36peLnlInAOVoS6sNhxQKMPVo8-Pe5mZ2ZztZKUjfgzz-wjZoazzxWC_pL48T2uJcm-RD6BFAZaThIaR9qIWalVrrYU5h6gzLkGto1GqKd41l13rqrBbOabiBL68qu0Qy_IckYYpbgSaVqBmjTE1yTk9iH8sOz0aqPDgpIwDpMg4aNPPcN5ufagbxz1ZcSOfv3aKT0HPaLgnslZr2k1hvDUdxRixzd9J6zYyzK8W0ZBT8DBggMWIScYsRqBEvX4abzA3j8FNXTaxS6f4CYXo9VSZPhom4FtOt29udg9JpcP3yJo4uiNrkBBnqn73fwzJ3h5Ilo2SgVjdRCZ8w1SA.1Z1MBr3LNeoAgDTR.UUzSKXYTKI0vdPWYw8h5pkw.msZqFaR05naMTBqNNy2rNw\""
     }
   }
 }

@@ -11,15 +11,15 @@ namespace tbk_crypto.Commands
             _cryptoService = cryptoService;
         }
 
-        public override void Run(string data)
+        public override void Run(string token)
         {
-            WriteTitle("Creating JWE token with TBK public key");
+            WriteTitle("Extracting data from JWE token with Tbk private key");
 
-            Console.WriteLine("Plain text: " + data);
+            Console.WriteLine("JWE Token: " + token);
             Console.WriteLine();
 
-            var encrypted = _cryptoService.TbkEncrypt(data);
-            Console.WriteLine("JWE Token: " + encrypted);
+            var decrypted = _cryptoService.TbkDecrypt(token);
+            Console.WriteLine("Plain text: " + decrypted);
             Console.WriteLine();
         }
     }

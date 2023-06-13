@@ -15,8 +15,10 @@ namespace tbk_crypto
         private IKeyPairMapper? _keyPairMapper;
         private IPublicKeyMapper? _publicKeyMapper;
         private FullTestCommand? _fullTestCommand;
-        private TbkEncryptCommand? _encryptCommand;
-        private HasarDecryptCommand? _decryptCommand;
+        private HasarEncryptCommand? _hasarEncryptCommand;
+        private HasarDecryptCommand? _hasarDecryptCommand;
+        private TbkEncryptCommand? _tbkEncryptCommand;
+        private TbkDecryptCommand? _tbkDecryptCommand;
 
         private Factory() { }
 
@@ -86,24 +88,46 @@ namespace tbk_crypto
 
         public TbkEncryptCommand GetEncryptCommand()
         {
-            if (_encryptCommand == null)
+            if (_tbkEncryptCommand == null)
             {
-                _encryptCommand = new TbkEncryptCommand(
+                _tbkEncryptCommand = new TbkEncryptCommand(
                     GetJoseCryptographyService());
             }
 
-            return _encryptCommand;
+            return _tbkEncryptCommand;
         }
 
         public HasarDecryptCommand GetDecryptCommand()
         {
-            if (_decryptCommand == null)
+            if (_hasarDecryptCommand == null)
             {
-                _decryptCommand = new HasarDecryptCommand(
+                _hasarDecryptCommand = new HasarDecryptCommand(
                     GetJoseCryptographyService());
             }
 
-            return _decryptCommand;
+            return _hasarDecryptCommand;
+        }
+
+        public HasarEncryptCommand GetHasarEncryptCommand()
+        {
+            if (_hasarEncryptCommand == null)
+            {
+                _hasarEncryptCommand = new HasarEncryptCommand(
+                    GetJoseCryptographyService());
+            }
+
+            return _hasarEncryptCommand;
+        }
+
+        public TbkDecryptCommand GetTbkDecryptCommand()
+        {
+            if (_tbkDecryptCommand == null)
+            {
+                _tbkDecryptCommand = new TbkDecryptCommand(
+                    GetJoseCryptographyService());
+            }
+
+            return _tbkDecryptCommand;
         }
 
         public FullTestCommand GetFullTestCommand()

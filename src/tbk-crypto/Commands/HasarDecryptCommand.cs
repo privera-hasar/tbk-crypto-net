@@ -13,10 +13,7 @@ namespace tbk_crypto.Commands
 
         public override void Run(string token)
         {
-            Console.WriteLine(CONSOLE_LINE);
-            Console.WriteLine("Extracting data from JWE token with Hasar public key");
-            Console.WriteLine(CONSOLE_LINE);
-            Console.WriteLine();
+            WriteTitle("Extracting data from JWE token with Hasar private key");
 
             Console.WriteLine("JWE Token: " + token);
             Console.WriteLine();

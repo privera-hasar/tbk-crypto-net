@@ -10,8 +10,14 @@ switch (command.Command)
     case SupportedCommands.Encrypt:
         Factory.GetInstance().GetEncryptCommand().Run(command.Argument);
         break;
+    case SupportedCommands.EncryptHasar:
+        Factory.GetInstance().GetHasarEncryptCommand().Run(command.Argument);
+        break;
     case SupportedCommands.Decrypt:
         Factory.GetInstance().GetDecryptCommand().Run(command.Argument);
+        break;
+    case SupportedCommands.DecryptTbk:
+        Factory.GetInstance().GetTbkDecryptCommand().Run(command.Argument);
         break;
     case SupportedCommands.FullTest:
         Factory.GetInstance().GetFullTestCommand().Run(command.Argument);
